@@ -24,6 +24,8 @@ class DataposkoController extends \app\controllers\MainController
      */
     public function actionIndex()
     {
+        $waktu = \yii::$app->request->get('waktu');
+        $days14BeforeNow = date('Y-m-d H:i:s',strtotime("-14 days"));
         $searchModel = new DataPoskoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         switch (\yii::$app->user->identity->userType) {
@@ -43,6 +45,16 @@ class DataposkoController extends \app\controllers\MainController
 
                 # code...
                 break;
+        }
+
+        if($waktu=="selesai")
+        {
+            $statusArray = [
+                \app\models\DataPoskoModel::STATUS_DALAM_PEMANTAUAN,
+                \app\models\DataPoskoModel::STATUS_GEJALA,
+            ];
+            $dataProvider->query->andWhere(['status'=>$statusArray]);
+            $dataProvider->query->andWhere(['<=','waktu_datang',$days14BeforeNow]);
         }
 
         if(\yii::$app->request->get('cetak')==TRUE)

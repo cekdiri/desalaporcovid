@@ -277,6 +277,50 @@ class DataPoskoModel extends DataPosko
         ];
     }
 
+    public static function getSelesaiPemantauan()
+    {
+        $days14BeforeNow = date('Y-m-d H:i:s',strtotime("-14 days"));
+        $statusArray = [
+            \app\models\DataPoskoModel::STATUS_DALAM_PEMANTAUAN,
+            \app\models\DataPoskoModel::STATUS_GEJALA,
+        ];
+        $id_kelurahan = \yii::$app->user->identity->kelurahan;
+        switch (\yii::$app->user->identity->userType) {
+            case \app\models\User::LEVEL_ADMIN:
+                $model = self::find()
+                    ->where([
+                        'status'=>$statusArray,
+                    ])
+                    ->andWhere(['<=','waktu_datang',$days14BeforeNow])
+                    ->count();
+                # code...
+                break;
+            case \app\models\User::LEVEL_ADMIN_DESA:
+            case \app\models\User::LEVEL_POSKO:
+                $model = self::find()
+                    ->where([
+                        'status'=>$statusArray,
+                        'kelurahan_datang'=>$id_kelurahan,
+                    ])
+                    ->andWhere(['<=','waktu_datang',$days14BeforeNow])
+                    ->count();
+
+                # code...
+                break;            
+            default:
+                $model = self::find()
+                    ->where([
+                        'status'=>$statusArray,
+                        'kelurahan_datang'=>$id_kelurahan,
+                    ])
+                    ->andWhere(['<=','waktu_datang',$days14BeforeNow])
+                    ->count();
+                # code...
+                break;
+        }
+        return $model;
+    }
+
 	public function getTanggalBerakhirIsolasiMandiri()
 	{
 		return date('d F Y H:i:s',strtotime($this->waktu_datang."+14 days"));
@@ -313,7 +357,9 @@ class DataPoskoModel extends DataPosko
         			# code...
         			break;        		
         		default:
-        			return "<span class='bg-white'>{$status}</span>";
+        			return "<span class='btn btn-xs btn-success'>{$status}</span>
+                    <p>Sudah selesai isolasi di rumah sampai tanggal : <span class='btn btn-xs btn-danger'>{$tanggal_berakhir_isolasi}</span></p>
+                    ";
         			# code...
         			break;
         	}
@@ -326,10 +372,10 @@ class DataPoskoModel extends DataPosko
         return [
             self::STATUS_DALAM_PEMANTAUAN=>"ODP (Orang Dalam Pemantauan)",
             self::STATUS_GEJALA=>"PDP (Pasien Dalam Pemantauan)",
+            self::STATUS_NEGATIF=>"SELESAI PEMANTAUAN",
             self::STATUS_POSITIF=>"STATUS POSITIF",
             self::STATUS_SEMBUH=>"STATUS SEMBUH",
             self::STATUS_PERGI=>"STATUS PERGI",
-            self::STATUS_NEGATIF=>"STATUS NEGATIF",
         ];
     }
 

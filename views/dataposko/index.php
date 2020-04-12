@@ -13,42 +13,40 @@ $this->title = Yii::t('app', 'Data Pantauan Posko');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-    <?php /*
 
-        <div class="box box-primary box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">Statistik Data Posko <?= \yii::$app->user->identity->namaKelurahan;?></h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="row">
+<?php 
+    $getSelesaiPemantauan = \app\models\DataPoskoModel::getSelesaiPemantauan();
+?>
+<?php if($getSelesaiPemantauan):?>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="info-box bg-yellow">
+            <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
 
+            <div class="info-box-content">
+              <span class="info-box-text">Data Warga Melewati Ketentuan Karantina Mandiri</span>
+              <span class="info-box-number"><?=$getSelesaiPemantauan;?> Warga <a class="btn btn-xs btn-primary" href="<?= \yii\helpers\Url::toRoute(['/dataposko','waktu'=>'selesai']);?>">Lihat Data Warga</a></span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 100%"></div>
               </div>
-              <!-- /.row -->
+                  <span class="progress-description">
+                    <?=$getSelesaiPemantauan;?> Warga Telah Melewati Masa Pemantauan dan status belum diubah, mohon divalidasi kembali.
+                  </span>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li>
-                    <a href="#">Jumlah Warga ODP (Orang Dalam Pemantauan)<span class="pull-right text-red"> </span></a>
-                    <a href="#">Jumlah Warga PDP (Pasien Dalam Pemantauan)<span class="pull-right text-red"> </span></a>
-                    <a href="#">Jumlah Warga POSITIF<span class="pull-right text-red"> </span></a>
-                    <a href="#">Jumlah Warga NEGATIF<span class="pull-right text-red"> </span></a>
-                    <a href="#">Jumlah Warga SEMBUH<span class="pull-right text-red"> </span></a>
-                    <a href="#">Jumlah Warga PERGI<span class="pull-right text-red"> </span></a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.footer -->
+            <!-- /.info-box-content -->
           </div>
-    */?>
+          <!-- /.info-box -->
+    </div>    
+</div>
+<?php endif;?>
 
 <div class="laporan-model-index box box-primary">
     <?php Pjax::begin(); ?>
     <div class="box-header with-border">
         <?= Html::a(Yii::t('app', '<i class="fa fa-plus"></i> Buat Data Pantauan Posko Baru'), ['create'], ['class' => 'btn btn-success btn-flat']) ?>
-        <?php if(\yii::$app->request->url=="/index.php/dataposko"):?>
-            <?= Html::a(Yii::t('app', '<i class="fa fa-print"></i> Cetak PDF'), [str_replace('index.php', '', \yii::$app->request->url).'?','cetak'=>true], ['class' => 'btn btn-primary btn-flat','data-pjax'=>0,'target'=>'__blank']) ?>
+        <?php if(\yii::$app->request->url=="/index.php/dataposko" or \yii::$app->request->url=="/dataposko"):?>
+            <?= Html::a(Yii::t('app', '<i class="fa fa-print"></i> Cetak PDF'), [str_replace('index.php', '', \yii::$app->request->url),'cetak'=>true], ['class' => 'btn btn-primary btn-flat','data-pjax'=>0,'target'=>'__blank']) ?>
         <?php else:?>
             <?= Html::a(Yii::t('app', '<i class="fa fa-print"></i> Cetak PDF'), [str_replace('index.php', '', \yii::$app->request->url).'&cetak=TRUE'], ['class' => 'btn btn-primary btn-flat','data-pjax'=>0,'target'=>'__blank']) ?>
         <?php endif;?>

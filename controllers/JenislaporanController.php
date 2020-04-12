@@ -52,6 +52,9 @@ class JenislaporanController extends \app\controllers\MainController
         $model = new JenisLaporanModel();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $cache = Yii::$app->cache;
+            $cacheUniqueId = implode('-', ['getJenisLaporanList']);
+            $cache->delete($cacheUniqueId);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -71,6 +74,9 @@ class JenislaporanController extends \app\controllers\MainController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $cache = Yii::$app->cache;
+            $cacheUniqueId = implode('-', ['getJenisLaporanList']);
+            $cache->delete($cacheUniqueId);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -88,7 +94,9 @@ class JenislaporanController extends \app\controllers\MainController
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
+        $cache = Yii::$app->cache;
+        $cacheUniqueId = implode('-', ['getJenisLaporanList']);
+        $cache->delete($cacheUniqueId);
         return $this->redirect(['index']);
     }
 
