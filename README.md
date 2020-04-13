@@ -17,105 +17,106 @@ Penjelasan singkat aplikasi ini sebagai berikut :
 # Fitur Desa Lapor Covid!
 
     Tipe Pengguna : Warga 
+- [x] Pendaftaran Pengguna Baru
+  
+- [x] Login Pengguna
+  
+- [x] Laporan Warga
+  
+- [x] Notifikasi Status Perkembangan Laporan Warga
+  
+- [x] Halaman Daftar Laporan Saya
+  
+- [x] Mengganti Password/ Kata Sandi Sendiri
+  
+- [x] Logs Semua Aktifitas Pengguna  
+  
+  
+    Tipe Pengguna : POSKO
     
-  [+] Pendaftaran Pengguna Baru
+     
+- [x] Login Petugas Posko
   
-  [+] Login Pengguna
+- [x] Mengganti Password/ Kata Sandi Sendiri
   
-  [+] Laporan Warga
+- [x] Notifikasi Laporan Warga
   
-  [+] Notifikasi Status Perkembangan Laporan Warga
+- [x] Validasi Laporan Warga
   
-  [+] Halaman Daftar Laporan Saya
+- [x] Merubah Status Laporan Warga
   
-  [+] Mengganti Password/ Kata Sandi Sendiri
+- [x] Notifikasi Laporan Warga  
   
-  [+] Logs Semua Aktifitas Pengguna  
+- [x] Import/Pindah/Copy Data Dari Laporan Warga Ke Data Posko
   
+- [x] Membuat Data Posko (Data Pantauan Warga Pendatang/Pemudik)
   
-    Tipe Pengguna : POSKO 
-  [+] Login Petugas Posko
+- [x] Merubah Status Data Posko (Data Posko)
   
-  [+] Mengganti Password/ Kata Sandi Sendiri
+- [x] Menambah/ Merubah Data Pantauan Harian
   
-  [+] Notifikasi Laporan Warga
+- [x] Mencetak PDF Data Posko Per Desa Petugas Posko
   
-  [+] Validasi Laporan Warga
+- [x] Mencetak PDF Detail Data Posko Per Warga Desa Petugas Posko
   
-  [+] Merubah Status Laporan Warga
+- [x] Logs Semua Aktifitas Pengguna  
   
-  [+] Notifikasi Laporan Warga  
+- [ ] Statistik Data Posko 1 Desa
   
-  [+] Import/Pindah/Copy Data Dari Laporan Warga Ke Data Posko
-  
-  [+] Membuat Data Posko (Data Pantauan Warga Pendatang/Pemudik)
-  
-  [+] Merubah Status Data Posko (Data Posko)
-  
-  [+] Menambah/ Merubah Data Pantauan Harian
-  
-  [+] Mencetak PDF Data Posko Per Desa Petugas Posko
-  
-  [+] Mencetak PDF Detail Data Posko Per Warga Desa Petugas Posko
-  
-  [+] Logs Semua Aktifitas Pengguna  
-  
-  [ ] Statistik Data Posko 1 Desa
-  
-  [ ] Statistik Laporan Warga 1 Desa
+- [ ] Statistik Laporan Warga 1 Desa
   
   
       Tipe Pengguna : ADMIN DESA 
-  [+] Login ADMIN DESA
+- [x] Login ADMIN DESA
   
-  [+] Mengganti Password/ Kata Sandi Sendiri
+- [x] Mengganti Password/ Kata Sandi Sendiri
   
-  [+] Notifikasi Laporan Warga
+- [x] Notifikasi Laporan Warga
   
-  [+] Validasi Laporan Warga
+- [x] Validasi Laporan Warga
   
-  [+] Merubah Status Laporan Warga
+- [x] Merubah Status Laporan Warga
   
-  [+] Notifikasi Laporan Warga  
+- [x] Notifikasi Laporan Warga  
   
-  [+] Import/Pindah/Copy Data Dari Laporan Warga Ke Data Posko
+- [x] Import/Pindah/Copy Data Dari Laporan Warga Ke Data Posko
   
-  [+] Membuat Data Posko (Data Pantauan Warga Pendatang/Pemudik)
+- [x] Membuat Data Posko (Data Pantauan Warga Pendatang/Pemudik)
   
-  [+] Merubah Status Data Posko (Data Posko)
+- [x] Merubah Status Data Posko (Data Posko)
   
-  [+] Menambah/ Merubah Data Pantauan Harian
+- [x] Menambah/ Merubah Data Pantauan Harian
   
-  [+] Mencetak PDF Data Posko Per Desa Petugas Posko
+- [x] Mencetak PDF Data Posko Per Desa Petugas Posko
   
-  [+] Mencetak PDF Detail Data Posko Per Warga Desa Petugas Posko
+- [x] Mencetak PDF Detail Data Posko Per Warga Desa Petugas Posko
   
-  [+] Merubah Status Pengguna dari Desa Yang Sama Menjadi Tipe Posko Atau Admin
+- [x] Merubah Status Pengguna dari Desa Yang Sama Menjadi Tipe Posko Atau Admin
   Desa
   
-  [+] Merubah Kata Sandi Pengguna dari Desa Yang Sama
+- [x] Merubah Kata Sandi Pengguna dari Desa Yang Sama
   
-  [+] Merubah Status Pengguna Dari Desa Yang Sama (AKTIF/DITANGGUHKAN)
+- [x] Merubah Status Pengguna Dari Desa Yang Sama (AKTIF/DITANGGUHKAN)
   
-  [+] Menghapus Data Posko
+- [x] Menghapus Data Posko
   
-  [x] Menghapus Laporan Warga
+- [x] Menghapus Laporan Warga
   
-  [x] Logs Semua Aktifitas Pengguna  
+- [x] Logs Semua Aktifitas Pengguna  
   
-  [ ] Statistik Data Posko 1 Desa
+- [ ] Statistik Data Posko 1 Desa
   
-  [ ] Statistik Laporan Warga 1 Desa
+- [ ] Statistik Laporan Warga 1 Desa
   
   
       Tipe Pengguna : PETUGAS PUSKESMAS 
-  [ ] Login PETUGAS PUSKESMAS
+- [ ] Login PETUGAS PUSKESMAS
   
-  [ ] Mengganti Password/ Kata Sandi Sendiri
+- [ ] Mengganti Password/ Kata Sandi Sendiri
   
-  [ ] Melihat Data Posko 1 Kecamatan
+- [ ] Melihat Data Posko 1 Kecamatan
   
-  [ ] Menambahkan/ Merubah Data Pantauan Harian Warga 
+- [ ] Menambahkan/ Merubah Data Pantauan Harian Warga 
   
 
 ### Tech
@@ -155,17 +156,23 @@ Install the dependencies and start the server.
 ```sh
 $ git clone https://github.com/teknosuper/desalaporcovid.git
 $ composer install --ignore-platform-reqs
-$ composer update
-$ php yii migration
-import mysql data in folder data/sql
+$ php yii migrate
+$ php yii import/dependency # or if you like do manually, import sql in data.
 ```
 
-For Development environments...
+###Settings
+
+Change `YII_DEBUG` to `true` if you want to enable debug toolbar. default `false`.
+Change `YII_ENV` to `dev` if you want to develop on local machine, otherwise set it `prod` when on production mode.
 
 ```sh
 $ nano web/index.php 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev')
+```
+duplicate `db.php` in config folder to `db-local.php`
+
+```sh
 $ nano config/db-local.php
 return [
     'class' => 'yii\db\Connection',
@@ -182,27 +189,6 @@ return [
 
 ```
 
-For production environments...
-
-```sh
-$ nano web/index.php 
-defined('YII_DEBUG') or define('YII_DEBUG', false);
-defined('YII_ENV') or define('YII_ENV', 'prod')
-$ nano config/db-local.php
-return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=desalaporcovid',
-    'username' => 'root',
-    'password' => '',
-    'charset' => 'utf8',
-
-    // Schema cache options (for production environment)
-    'enableSchemaCache' => true,
-    'schemaCacheDuration' => 3600*24,
-    'schemaCache' => 'cache',
-];
-
-```
 ### Development
 
 Want to contribute? Great! 
