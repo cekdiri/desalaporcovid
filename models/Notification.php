@@ -85,7 +85,7 @@ class Notification extends BaseNotification
             case self::KEY_CREATE_STATUS_PERGI:
                 return Yii::t('app', 'Data baru STATUS Warga PERGI ke Luar Kota');          
             case self::KEY_CREATE_STATUS_NEGATIF:
-                return Yii::t('app', 'Data baru STATUS Warga NEGATIF COVID-19');                   
+                return Yii::t('app', 'Data baru STATUS Warga SELESAI PEMANTAUAN COVID-19');                   
 
 
             case self::KEY_UPDATE_STATUS_DALAM_PEMANTAUAN:
@@ -99,7 +99,7 @@ class Notification extends BaseNotification
             case self::KEY_UPDATE_STATUS_PERGI:
                 return Yii::t('app', 'Perubahan STATUS Warga PERGI ke Luar Kota');          
             case self::KEY_UPDATE_STATUS_NEGATIF:
-                return Yii::t('app', 'Perubahan STATUS Warga NEGATIF COVID-19');          
+                return Yii::t('app', 'Perubahan STATUS Warga SELESAI PEMANTAUAN COVID-19');          
 
         }
     }
@@ -157,7 +157,7 @@ class Notification extends BaseNotification
             case self::KEY_UPDATE_STATUS_PERGI:
                 return Yii::t('app', 'Perubahan STATUS Warga PERGI ke Luar Kota');          
             case self::KEY_UPDATE_STATUS_NEGATIF:
-                return Yii::t('app', 'Perubahan STATUS Warga NEGATIF COVID-19'); 
+                return Yii::t('app', 'Perubahan STATUS Warga SELESAI PEMANTAUAN COVID-19'); 
 
         }
     }
