@@ -36,9 +36,9 @@ class NotificationModel extends Notification
 		// $model->created_at = new \yii\db\Expression('NOW()');
         $model->created_at = date('Y-m-d H:i:s');
 		$model->flashed = 0;
-		if($model->save())
+        if($model->save())
 		{
-			return $model;
+            return $model;
 		}
-	}
+    }
 }

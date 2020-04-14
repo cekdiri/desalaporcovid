@@ -469,8 +469,13 @@ class DataPoskoModel extends DataPosko
 	            {
 	                $posko_id[] = $allPoskoByKelurahanData->id;
 	            }
-	            $userModel = \app\models\User::find()->where(['user_id'=>$posko_id,'userType'=>\app\models\User::LEVEL_POSKO])->all();
-	            if($userModel)
+	            $userTypeArray = [
+	            	\app\models\User::LEVEL_POSKO,
+	            	\app\models\User::LEVEL_ADMIN_DESA,
+	            ];
+	            $userModel = \app\models\User::find()->where(['user_id'=>$posko_id,'userType'=>$userTypeArray])->all();
+
+                if($userModel)
 	            {
 	                foreach($userModel as $userModelData)
 	                {
@@ -504,7 +509,7 @@ class DataPoskoModel extends DataPosko
 	                			# code...
 	                			break;
 	                	}
-	                    \app\models\NotificationModel::createNotification($notif_type, $this->id,$userModelData->id);                                    
+                        \app\models\NotificationModel::createNotification($notif_type, $this->id,$userModelData->id);                                    
 	                }
 
 	            }
