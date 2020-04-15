@@ -66,7 +66,7 @@ use yii\helpers\Url;
 
     </div>
     <div class="box-footer">
-        <?= Html::submitButton(Yii::t('app', 'Simpan Data Posko'), ['class' => 'btn btn-success btn-flat btn-block']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Simpan Data Posko'), ['class' => 'btn btn-success btn-flat btn-block','data-method'=>'post','data-confirm'=>'Tekan OK untuk mengkonfirmasi data']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>

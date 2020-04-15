@@ -13,6 +13,18 @@ class PoskoModel extends Posko
     const STATUS_ACTIVE = 10;
     const STATUS_SUSPENDED = 30;
 
+    public function rules()
+    {
+        return [
+            [['status','id_kelurahan','nama_posko', 'alamat_posko'], 'required'],
+            [['created_by', 'updated_by'], 'integer'],
+            [['created_at', 'updated_at','email_posko', 'no_telepon','keterangan'], 'safe'],
+            [['id_kelurahan'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\table\Kelurahan::className(), 'targetAttribute' => ['id_kelurahan' => 'id_kel']],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\table\Users::className(), 'targetAttribute' => ['created_by' => 'id']],
+            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\table\Users::className(), 'targetAttribute' => ['updated_by' => 'id']],
+        ];
+    }
+
     public function getUpdatedByText()
     {
         $updated_by = $this->updated_by;
