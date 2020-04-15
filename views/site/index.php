@@ -199,3 +199,22 @@
           <!-- /.box -->
         </div>        
     </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box box-primary box-solid">
+          <div class="box-header with-border">
+            <i class="fa fa-video-camera"></i>
+
+            <h3 class="box-title">Video Panduan Penggunaan Untuk Admin Desa</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lVCy5HS8Muk" frameborder="0" allowfullscreen=""></iframe>
+            </div>        
+          </div>
+        </div>
+      </div>
+
+    </div> 
