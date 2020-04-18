@@ -16,6 +16,8 @@ class DataPoskoModel extends DataPosko
     const STATUS_SEMBUH = 40;
     const STATUS_PERGI = 50;
     const STATUS_NEGATIF = 60;
+    const STATUS_MENINGGAL = 70;
+    const STATUS_OTG = 80;
 
     const GENDER_L = 'L';
     const GENDER_P = 'P';
@@ -79,6 +81,7 @@ class DataPoskoModel extends DataPosko
                 self::STATUS_SEMBUH,
                 self::STATUS_NEGATIF,
                 self::STATUS_PERGI,
+                self::STATUS_MENINGGAL,
             ];
             $model = self::find()->where(['status'=>$status])->count();
             $returnData = (int) $model;
@@ -102,6 +105,7 @@ class DataPoskoModel extends DataPosko
                 self::STATUS_DALAM_PEMANTAUAN,
                 self::STATUS_GEJALA,
                 self::STATUS_POSITIF,
+                self::STATUS_OTG,
             ];
             $model = self::find()->where(['status'=>$status])->count();
             $returnData = (int) $model;
@@ -394,7 +398,7 @@ class DataPoskoModel extends DataPosko
         			";
         			# code...
         			break;        		
-        		case self::STATUS_GEJALA:
+        		case self::STATUS_POSITIF:
         			return "
         			<span class='btn btn-xs btn-danger'>{$status}</span>
         			<p><i class='fa fa-warning'></i> Harus isolasi di rumah sampai tanggal : <span class='btn btn-xs btn-danger'>{$tanggal_berakhir_isolasi}</span></p>
@@ -417,10 +421,12 @@ class DataPoskoModel extends DataPosko
         return [
             self::STATUS_DALAM_PEMANTAUAN=>"ODP (Orang Dalam Pemantauan)",
             self::STATUS_GEJALA=>"PDP (Pasien Dalam Pemantauan)",
+            self::STATUS_OTG=>"OTG (Orang Tanpa Gejala)",
             self::STATUS_NEGATIF=>"SELESAI PEMANTAUAN",
             self::STATUS_POSITIF=>"STATUS POSITIF",
             self::STATUS_SEMBUH=>"STATUS SEMBUH",
             self::STATUS_PERGI=>"STATUS PERGI",
+            self::STATUS_MENINGGAL=>"STATUS MENINGGAL",
         ];
     }
 
