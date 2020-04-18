@@ -25,7 +25,9 @@
         "kartik-v/yii2-widget-select2": "dev-master",
         "machour/yii2-notifications": "*",
         "kartik-v/yii2-mpdf": "dev-master",
-        "phpoffice/phpspreadsheet": "^1.11"
+        "phpoffice/phpspreadsheet": "^1.11",
+        "2amigos/yii2-highcharts-widget": "~1.0",
+        "scotthuangzl/yii2-google-chart": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

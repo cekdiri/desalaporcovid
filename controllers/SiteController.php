@@ -54,6 +54,11 @@ class SiteController extends \app\controllers\MainController
             ],
         ];
     }
+
+    public function actionPanduan()
+    {
+        return $this->render('panduan');
+    }
     public function actionGetposko()
     {
         $output = [];

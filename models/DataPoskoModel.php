@@ -68,6 +68,28 @@ class DataPoskoModel extends DataPosko
         return $returnData;
     }
 
+    public static function getStatsPemantauanSelesai()
+    {
+        $status = [
+            self::STATUS_SEMBUH,
+            self::STATUS_NEGATIF,
+            self::STATUS_PERGI,
+        ];
+        $model = self::find()->where(['status'=>$status])->count();
+        return (int) $model;
+    }
+
+    public static function getStatsDalamPantauan()
+    {
+        $status = [
+            self::STATUS_DALAM_PEMANTAUAN,
+            self::STATUS_GEJALA,
+            self::STATUS_POSITIF,
+        ];
+        $model = self::find()->where(['status'=>$status])->count();
+        return (int) $model;
+    }
+
     public function getKelurahanText()
     {
         $kelurahan = $this->kelurahan;

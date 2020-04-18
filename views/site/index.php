@@ -1,6 +1,7 @@
 <?php 
     $this->title = Yii::t('app', 'Selamat Datang di Aplikasi Desa Lapor Covid-19');
     $this->params['breadcrumbs'][] = $this->title;
+    use scotthuangzl\googlechart\GoogleChart;
 ?>
 
 
@@ -33,41 +34,6 @@
         ?>
 
     <?php endif;?>    
-    
-    <div class="row">
-      <div class="col-md-6">
-        <div class="box box-primary box-solid">
-          <div class="box-header with-border">
-            <i class="fa fa-video-camera"></i>
-
-            <h3 class="box-title">Video Panduan Penggunaan Untuk Warga</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/9AgUF88qW18" frameborder="0" allowfullscreen=""></iframe>
-            </div>        
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="box box-primary box-solid">
-          <div class="box-header with-border">
-            <i class="fa fa-video-camera"></i>
-
-            <h3 class="box-title">Video Panduan Penggunaan Untuk Petugas Posko</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/KCzxkAhPI74" frameborder="0" allowfullscreen=""></iframe>
-            </div>        
-          </div>
-        </div>
-      </div>
-
-    </div>   
 
     <div class="row">
 
@@ -180,15 +146,15 @@
                 <div class="panel box box-success">
                   <div class="box-header with-border">
                     <h4 class="box-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#suspect" class="collapsed" aria-expanded="false">
-                        SUSPECT
+                      <a data-toggle="collapse" data-parent="#accordion" href="#otg" class="collapsed" aria-expanded="false">
+                        Orang Tanpa Gejala (OTG)
                       </a>
                     </h4>
                   </div>
-                  <div id="suspect" class="panel-collapse collapse" aria-expanded="false">
+                  <div id="otg" class="panel-collapse collapse" aria-expanded="false">
                     <div class="box-body">
-                        <b>Orang yang sudah menunjukkan gejala terjangkit korona dan juga diduga kuat melakukan kontak dengan pasien positif Covid-19.</b>
-                        <p>Selanjutnya, pasien suspect Covid-19 akan diperiksa spesimennya menggunakan dua metode, Polymerase Chain Reaction (PCR) dan Genome Sequencing.</p>
+                        <b>Orang Tanpa Gejala merupakan seseorang yang tidak memiliki gejala dan memiliki risiko tertular dari orang terkonfirmasi COVID-19.</b>
+                        <p>Orang yang memiliki riwayat kontak dekat dengan kasus konfirmasi COVID-19 dapat masuk dalam kriteria ini. Seseorang dapat dikatakan telah melakukan kontak erat apabila ia melakukan kontak fisik. berada dalam ruangan, atau berkunjung, dalam 2 hari sebelum kasus timbul gejala hingga 14 hari setelah kasus timbul gejala.</p>
                     </div>
                   </div>
                 </div>
@@ -202,19 +168,45 @@
 
     <div class="row">
       <div class="col-md-6">
-        <div class="box box-primary box-solid">
-          <div class="box-header with-border">
-            <i class="fa fa-video-camera"></i>
+          <div class="box box-solid box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"><i class="fa fa-info"></i> Statistik Pemantauan Semua Desa</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
 
-            <h3 class="box-title">Video Panduan Penggunaan Untuk Admin Desa</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lVCy5HS8Muk" frameborder="0" allowfullscreen=""></iframe>
-            </div>        
+              <?=
+                  \dosamigos\highcharts\HighCharts::widget([
+                    'clientOptions' => [
+                        'chart' => [
+                                'type' => 'bar'
+                        ],
+                        'title' => [
+                            'text' => 'Statistik Pemantauan desalaporcovid'
+                            ],
+                        'xAxis' => [
+                              'categories' => [
+                                  'Pemudik',
+                              ]
+                          ],
+                        'yAxis' => [
+                            'title' => [
+                                'text' => 'Total Pemudik'
+                            ]
+                        ],
+                        'series' => [
+                            ['name' => 'Dalam Pemantauan', 'data' => [\app\models\DataPoskoModel::getStatsDalamPantauan()]],
+                            ['name' => 'Selesai Pemantauan', 'data' => [\app\models\DataPoskoModel::getStatsPemantauanSelesai()]]
+                        ]
+                    ]
+                  ]);
+
+                ?>
+
+            </div>
           </div>
         </div>
-      </div>
 
-    </div> 
+
+    </div>
+
