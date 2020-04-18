@@ -70,24 +70,47 @@ class DataPoskoModel extends DataPosko
 
     public static function getStatsPemantauanSelesai()
     {
-        $status = [
-            self::STATUS_SEMBUH,
-            self::STATUS_NEGATIF,
-            self::STATUS_PERGI,
-        ];
-        $model = self::find()->where(['status'=>$status])->count();
-        return (int) $model;
+        $cache = Yii::$app->cache;
+        $cacheUniqueId = implode('-', ['getStatsPemantauanSelesai']);
+        $getCache = $cache->get($cacheUniqueId);
+        if($getCache===FALSE)
+        {    
+            $status = [
+                self::STATUS_SEMBUH,
+                self::STATUS_NEGATIF,
+                self::STATUS_PERGI,
+            ];
+            $model = self::find()->where(['status'=>$status])->count();
+            $returnData = (int) $model;
+
+            $getCache = $returnData;
+            $cache->set($cacheUniqueId,$getCache,60*5);
+        }
+        $returnData = $getCache;
+        return $returnData;
+
     }
 
     public static function getStatsDalamPantauan()
     {
-        $status = [
-            self::STATUS_DALAM_PEMANTAUAN,
-            self::STATUS_GEJALA,
-            self::STATUS_POSITIF,
-        ];
-        $model = self::find()->where(['status'=>$status])->count();
-        return (int) $model;
+        $cache = Yii::$app->cache;
+        $cacheUniqueId = implode('-', ['getStatsDalamPantauan']);
+        $getCache = $cache->get($cacheUniqueId);
+        if($getCache===FALSE)
+        {    
+            $status = [
+                self::STATUS_DALAM_PEMANTAUAN,
+                self::STATUS_GEJALA,
+                self::STATUS_POSITIF,
+            ];
+            $model = self::find()->where(['status'=>$status])->count();
+            $returnData = (int) $model;
+
+            $getCache = $returnData;
+            $cache->set($cacheUniqueId,$getCache,60*5);
+        }
+        $returnData = $getCache;
+        return $returnData;
     }
 
     public function getKelurahanText()
