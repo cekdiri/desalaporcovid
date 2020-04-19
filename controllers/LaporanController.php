@@ -104,7 +104,7 @@ class LaporanController extends \app\controllers\MainController
 
         $model->updated_at = date('Y-m-d H:i:s');
         $model->updated_by = \yii::$app->user->identity->id;
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->update()) {
             $model->sendNotification("update");
             $model->sendLogs("update");
             return $this->redirect(['view', 'id' => $model->id]);

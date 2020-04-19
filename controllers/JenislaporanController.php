@@ -73,7 +73,7 @@ class JenislaporanController extends \app\controllers\MainController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->update()) {
             $cache = Yii::$app->cache;
             $cacheUniqueId = implode('-', ['getJenisLaporanList']);
             $cache->delete($cacheUniqueId);

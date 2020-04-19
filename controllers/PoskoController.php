@@ -90,7 +90,7 @@ class PoskoController extends \app\controllers\MainController
 
         $model->updated_by = \yii::$app->user->identity->id;
         $model->updated_at = date('Y-m-d H:i:s');
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->update()) {
             $model->sendLogs("update");
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

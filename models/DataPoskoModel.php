@@ -8,15 +8,14 @@ use app\models\table\DataPosko;
 class DataPoskoModel extends DataPosko
 {
 
-
-    // const STATUS_DELETED = 20;
     const STATUS_DALAM_PEMANTAUAN = 10;
-    const STATUS_GEJALA = 20;
-    const STATUS_POSITIF = 30;
     const STATUS_SEMBUH = 40;
     const STATUS_PERGI = 50;
     const STATUS_NEGATIF = 60;
     const STATUS_MENINGGAL = 70;
+    //deprecated
+    const STATUS_GEJALA = 20;
+    const STATUS_POSITIF = 30;
     const STATUS_OTG = 80;
 
     const GENDER_L = 'L';
@@ -419,14 +418,14 @@ class DataPoskoModel extends DataPosko
     public static function getStatusList()
     {
         return [
-            self::STATUS_DALAM_PEMANTAUAN=>"ODP (Orang Dalam Pemantauan)",
-            self::STATUS_GEJALA=>"PDP (Pasien Dalam Pemantauan)",
-            self::STATUS_OTG=>"OTG (Orang Tanpa Gejala)",
+            self::STATUS_DALAM_PEMANTAUAN=>"DALAM PEMANTAUAN",
             self::STATUS_NEGATIF=>"SELESAI PEMANTAUAN",
-            self::STATUS_POSITIF=>"STATUS POSITIF",
-            self::STATUS_SEMBUH=>"STATUS SEMBUH",
-            self::STATUS_PERGI=>"STATUS PERGI",
-            self::STATUS_MENINGGAL=>"STATUS MENINGGAL",
+            self::STATUS_SEMBUH=>"SEMBUH",
+            self::STATUS_PERGI=>"PERGI",
+            self::STATUS_MENINGGAL=>"MENINGGAL",
+            // self::STATUS_POSITIF=>"STATUS POSITIF",
+            // self::STATUS_GEJALA=>"PDP (Pasien Dalam Pemantauan)",
+            // self::STATUS_OTG=>"OTG (Orang Tanpa Gejala)",
         ];
     }
 
@@ -481,14 +480,6 @@ class DataPoskoModel extends DataPosko
 	                			$notif_type = \app\models\Notification::KEY_CREATE_STATUS_DALAM_PEMANTAUAN;
 	                			# code...
 	                			break;
-	                		case self::STATUS_GEJALA:
-	                			$notif_type = \app\models\Notification::KEY_CREATE_STATUS_GEJALA;
-	                			# code...
-	                			break;	                		
-	                		case self::STATUS_POSITIF:
-	                			$notif_type = \app\models\Notification::KEY_CREATE_STATUS_POSITIF;
-	                			# code...
-	                			break;
 	                		case self::STATUS_SEMBUH:
 	                			$notif_type = \app\models\Notification::KEY_CREATE_STATUS_SEMBUH;
 	                			# code...
@@ -499,6 +490,10 @@ class DataPoskoModel extends DataPosko
 	                			break;
 	                		case self::STATUS_NEGATIF:
 	                			$notif_type = \app\models\Notification::KEY_CREATE_STATUS_NEGATIF;
+	                			# code...
+	                			break;
+	                		case self::STATUS_MENINGGAL:
+	                			$notif_type = \app\models\Notification::KEY_CREATE_STATUS_MENINGGAL;
 	                			# code...
 	                			break;
 	                		default:
@@ -535,14 +530,6 @@ class DataPoskoModel extends DataPosko
 	                			$notif_type = \app\models\Notification::KEY_UPDATE_STATUS_DALAM_PEMANTAUAN;
 	                			# code...
 	                			break;
-	                		case self::STATUS_GEJALA:
-	                			$notif_type = \app\models\Notification::KEY_UPDATE_STATUS_GEJALA;
-	                			# code...
-	                			break;	                		
-	                		case self::STATUS_POSITIF:
-	                			$notif_type = \app\models\Notification::KEY_UPDATE_STATUS_POSITIF;
-	                			# code...
-	                			break;
 	                		case self::STATUS_SEMBUH:
 	                			$notif_type = \app\models\Notification::KEY_UPDATE_STATUS_SEMBUH;
 	                			# code...
@@ -554,8 +541,12 @@ class DataPoskoModel extends DataPosko
 	                		case self::STATUS_NEGATIF:
 	                			$notif_type = \app\models\Notification::KEY_UPDATE_STATUS_NEGATIF;
 	                			# code...
-	                			break;
-	                		default:
+                                break;
+                            case self::STATUS_MENINGGAL:
+                                $notif_type = \app\models\Notification::KEY_UPDATE_STATUS_MENINGGAL;
+                                # code...
+                                break;                                
+                            default:
 	                			$notif_type = \app\models\Notification::KEY_UPDATE_STATUS_DALAM_PEMANTAUAN;
 	                			# code...
 	                			break;

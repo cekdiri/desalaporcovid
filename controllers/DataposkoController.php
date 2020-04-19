@@ -287,11 +287,11 @@ class DataposkoController extends \app\controllers\MainController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->update()) {
             /* end update laporan */
             $model->updated_at = date('Y-m-d H:i:s');
             $model->updated_by = \yii::$app->user->identity->id;
-            $model->save();
+            $model->update();
             /* start send notification */
             $model->sendNotification("update");
             $model->sendLogs("update");

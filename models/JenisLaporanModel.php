@@ -9,6 +9,12 @@ use yii\helpers\ArrayHelper;
 class JenisLaporanModel extends JenisLaporan
 {
 
+    const PDP = 1;
+    const ODP = 2;
+    const PENDATANG = 4;
+    const OTG = 5;
+    const POSITIF = 6;
+    
     const STATUS_ACTIVE = 10;
     const STATUS_DISABLED = 20;
 
